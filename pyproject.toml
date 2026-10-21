@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "paper-retrieval-service"
+version = "1.0.0"
+description = "Stateless paper keyword search and PDF download"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "aiohttp>=3.9.0",
+    "beautifulsoup4>=4.12.0",
+    "fastapi>=0.109.0",
+    "pydantic>=2.5.0",
+    "pydantic-settings>=2.1.0",
+    "uvicorn[standard]>=0.27.0",
+]
+
+[project.scripts]
+paper-retrieval = "paper_retrieval.cli:main"
+paper-retrieval-server = "paper_retrieval.main:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["paper_retrieval*"]
